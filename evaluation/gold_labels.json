@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2025-01-01",
+    "description": "Gold labels for LexTimeCheck evaluation",
+    "total_sections": 30,
+    "corpora": ["eu_ai_act", "nyc_aedt", "fre_702"]
+  },
+  "sections": [
+    {
+      "section_id": "eu_ai_act_article_50_pre_application",
+      "corpus": "eu_ai_act",
+      "expected_norms": 4,
+      "expected_conflicts": 0,
+      "key_dates": ["2024-08-01"],
+      "notes": "Pre-application phase, obligations not yet enforced"
+    },
+    {
+      "section_id": "eu_ai_act_article_50_application",
+      "corpus": "eu_ai_act",
+      "expected_norms": 5,
+      "expected_conflicts": 2,
+      "key_dates": ["2026-08-02"],
+      "conflicts": [
+        {
+          "type": "deontic_contradiction",
+          "norm1_version": "pre_application",
+          "norm2_version": "application",
+          "action": "transparency disclosure",
+          "severity": "high"
+        }
+      ],
+      "notes": "Full application with enforcement"
+    },
+    {
+      "section_id": "nyc_aedt_section_20-871_local_law",
+      "corpus": "nyc_aedt",
+      "expected_norms": 3,
+      "expected_conflicts": 0,
+      "key_dates": ["2023-01-01"],
+      "notes": "Basic notice requirement"
+    },
+    {
+      "section_id": "nyc_aedt_section_20-871_final_rules",
+      "corpus": "nyc_aedt",
+      "expected_norms": 4,
+      "expected_conflicts": 1,
+      "key_dates": ["2023-07-05"],
+      "conflicts": [
+        {
+          "type": "condition_inconsistency",
+          "norm1_version": "local_law",
+          "norm2_version": "final_rules",
+          "action": "provide notice",
+          "severity": "medium",
+          "resolution": "lex_specialis"
+        }
+      ],
+      "notes": "Enhanced notice requirements with specifics"
+    },
+    {
+      "section_id": "fre_702_rule_702_pre_amendment",
+      "corpus": "fre_702",
+      "expected_norms": 4,
+      "expected_conflicts": 0,
+      "key_dates": ["2000-12-01"],
+      "notes": "Original admissibility standard"
+    },
+    {
+      "section_id": "fre_702_rule_702_post_amendment",
+      "corpus": "fre_702",
+      "expected_norms": 4,
+      "expected_conflicts": 1,
+      "key_dates": ["2023-12-01"],
+      "conflicts": [
+        {
+          "type": "condition_inconsistency",
+          "norm1_version": "pre_amendment",
+          "norm2_version": "post_amendment",
+          "action": "expert testimony admissibility",
+          "severity": "high",
+          "resolution": "lex_posterior"
+        }
+      ],
+      "notes": "Strengthened preponderance standard"
+    }
+  ],
+  "evaluation_criteria": {
+    "extraction_accuracy": {
+      "metric": "F1 score for norm extraction",
+      "target": 0.8
+    },
+    "temporal_fidelity": {
+      "metric": "Percentage of correct dates",
+      "target": 0.9
+    },
+    "conflict_precision": {
+      "metric": "TP / (TP + FP) for conflicts",
+      "target": 0.8
+    },
+    "conflict_recall": {
+      "metric": "TP / (TP + FN) for conflicts",
+      "target": 0.75
+    },
+    "resolution_agreement": {
+      "metric": "Canon matches gold preference",
+      "target": 0.8
+    }
+  }
+}
+

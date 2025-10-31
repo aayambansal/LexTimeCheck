@@ -1,0 +1,27 @@
+NYC Local Law 144 of 2021
+Automated Employment Decision Tools
+
+§ 20-870 Definitions.
+
+As used in this section, the following terms have the following meanings:
+
+Automated employment decision tool. The term "automated employment decision tool" means any computational process, derived from machine learning, statistical modeling, data analytics, or artificial intelligence, that issues simplified output, including a score, classification, or recommendation, that is used to substantially assist or replace discretionary decision making for making employment decisions that impact natural persons.
+
+Bias audit. The term "bias audit" means an impartial evaluation by an independent auditor of an automated employment decision tool's disparate impact on persons of any component 1 category required to be reported by employers.
+
+Employment decision. The term "employment decision" means to screen candidates for employment or employees for promotion within the city.
+
+§ 20-871 Use of automated employment decision tools.
+
+a. It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless:
+
+1. Such tool has been subject to a bias audit conducted no more than one year prior to the use of such tool; and
+
+2. A summary of the results of the most recent bias audit of such tool is publicly available on the website of the employer or employment agency using such tool.
+
+b. Notice requirement. An employer or employment agency may not use an automated employment decision tool unless the employer or employment agency provides notice to a candidate or employee who resides in the city of New York at least 10 business days before the use of such automated employment decision tool.
+
+c. Data retention. An employer or employment agency that uses an automated employment decision tool must maintain records of the bias audit and usage data for a period of at least three years.
+
+Effective Date: This local law takes effect 180 days after it becomes law, except that the commissioner may take any actions necessary for implementation of this local law prior to such effective date (Effective January 1, 2023).
+

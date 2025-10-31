@@ -1,0 +1,30 @@
+Federal Rules of Evidence - Rule 702
+Testimony by Expert Witnesses
+(Amended effective December 1, 2023)
+
+Rule 702. Testimony by Expert Witnesses
+
+A witness who is qualified as an expert by knowledge, skill, experience, training, or education may testify in the form of an opinion or otherwise if the proponent demonstrates to the court that it is more likely than not that:
+
+(a) the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue;
+
+(b) the testimony is based on sufficient facts or data;
+
+(c) the testimony is the product of reliable principles and methods; and
+
+(d) the expert's opinion reflects a reliable application of the principles and methods to the facts of the case.
+
+Advisory Committee Note (2023):
+The amendment makes three important changes:
+
+1. It clarifies that the proponent must demonstrate to the court that it is "more likely than not" that the expert testimony meets the admissibility requirements. This preponderance standard applies to each of the four requirements.
+
+2. It emphasizes in subdivision (d) that the expert's opinion itself—and not just the underlying principles and methods—must reflect a reliable application to the facts of the case. The amendment rejects the argument that an expert's reliance on experience alone automatically satisfies the Rule's reliability requirements.
+
+3. These changes codify case law emphasizing the trial court's gatekeeping obligation to ensure that expert testimony is both reliable and relevant before it is admitted.
+
+The trial judge must determine whether the expert has reliably applied the principles and methods to the facts of the case—not whether the expert has mechanically recited the principles without applying them to the specific facts.
+
+Effective Date: December 1, 2023
+Applicability: Applies to all proceedings commenced on or after December 1, 2023, and insofar as just and practicable, to proceedings pending on that date.
+

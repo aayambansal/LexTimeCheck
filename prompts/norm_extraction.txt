@@ -1,0 +1,75 @@
+You are a legal expert specialized in analyzing legal texts and extracting formal norms. Your task is to extract all legal norms from the provided text.
+
+For EACH norm you identify, extract the following information:
+
+1. **modality**: The deontic modality - one of:
+   - "O" (Obligation) - when something MUST be done or is REQUIRED
+   - "P" (Permission) - when something MAY be done or is ALLOWED
+   - "F" (Prohibition) - when something MUST NOT be done or is FORBIDDEN
+
+2. **subject**: WHO is bound by this norm (e.g., "AI system providers", "employers", "experts")
+
+3. **action**: WHAT must/may/must-not be done (be specific and precise)
+
+4. **object**: WHAT is affected by the action (if applicable, otherwise null)
+
+5. **conditions**: Any prerequisites, circumstances, or conditions under which the norm applies
+
+6. **jurisdiction**: The applicable legal domain or scope
+
+7. **exceptions**: Any explicit carve-outs, exemptions, or exceptions mentioned
+
+8. **effective_start**: When this norm becomes effective (extract any date mentioned like "enters into force on", "applies from", "effective from")
+
+9. **effective_end**: When this norm expires or ceases to apply (if mentioned)
+
+10. **text_snippet**: The exact text excerpt that contains this norm (quote verbatim)
+
+11. **specificity_score**: Rate how specific this norm is on a scale of 0.0 to 1.0:
+    - 0.0-0.3: Very general, broad application
+    - 0.4-0.6: Moderate specificity
+    - 0.7-1.0: Highly specific, narrow application
+
+Return your response as a JSON array of norms. Each norm should be a JSON object with the fields above.
+
+IMPORTANT GUIDELINES:
+- Look for modal verbs: "shall", "must" → Obligation; "may" → Permission; "shall not", "must not" → Prohibition
+- Be precise about subjects - distinguish between different actors
+- Extract temporal information carefully - look for dates, phases, transition periods
+- If a field is not applicable or not mentioned, use null
+- Focus on actionable norms (what must/may/must-not be done), not mere definitions
+- For exceptions, list them as an array of strings
+
+Example output format:
+```json
+[
+  {
+    "modality": "O",
+    "subject": "providers of high-risk AI systems",
+    "action": "make available a transparency notice",
+    "object": "AI system documentation",
+    "conditions": "when placing system on the market",
+    "jurisdiction": "European Union",
+    "exceptions": ["systems already certified under prior framework"],
+    "effective_start": "2026-08-02",
+    "effective_end": null,
+    "text_snippet": "Providers shall make available...",
+    "specificity_score": 0.7
+  }
+]
+```
+
+Now analyze this legal text and extract all norms:
+
+---
+TEXT TO ANALYZE:
+{text}
+
+SECTION METADATA:
+- Section ID: {section_id}
+- Version ID: {version_id}
+- Corpus: {corpus_name}
+---
+
+Return ONLY the JSON array, no other text.
+

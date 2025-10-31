@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+
+# Output files
+outputs/
+*.json
+*.html
+!evaluation/gold_labels.json
+!data/**/*.json
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Paper materials (until ready)
+paper/*.pdf
+paper/*.aux
+paper/*.log
+paper/*.out
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+

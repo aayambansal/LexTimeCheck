@@ -1,0 +1,35 @@
+NYC DCWP Final Rules for Automated Employment Decision Tools
+Effective July 5, 2023
+
+§ 20-870 Definitions [as amended].
+
+Independent auditor. The term "independent auditor" means a person or group that is capable of exercising objective and impartial judgment on all issues within the scope of a bias audit of an automated employment decision tool. An auditor for a bias audit is not independent if the auditor or any entity with which the auditor is affiliated: (i) has designed, developed, or sold such tool; (ii) has a direct financial interest or material indirect financial interest in an employer or employment agency that seeks to use or continues to use such tool; or (iii) has a direct financial or material indirect financial interest in the automated employment decision tool or algorithm.
+
+§ 20-871 Use of automated employment decision tools [as amended].
+
+a. Bias audit requirement. It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless:
+
+1. Such tool has been subject to a bias audit conducted no more than one year prior to the use of such tool; and
+
+2. A summary of the results of the most recent bias audit of such tool and the distribution date of the tool are publicly available on the employer's or employment agency's website in a clear and conspicuous manner.
+
+b. Enhanced notice requirement. An employer or employment agency may not use an automated employment decision tool unless the employer or employment agency provides notice to a candidate or employee who resides in the city of New York at least 10 business days before the use of such automated employment decision tool. Such notice must:
+
+1. Be provided in writing to candidates via postal mail or email;
+2. Inform the candidate of the data categories collected for the AEDT;
+3. Include a description of the job qualifications and characteristics the tool will assess;
+4. Provide instructions on how to request an alternative selection process or accommodation;
+5. Provide information on how to request and access the bias audit results.
+
+c. Alternative process. An employer or employment agency must provide an alternative selection process or reasonable accommodation upon request from a candidate or employee.
+
+d. Data retention and audit trail. An employer or employment agency that uses an automated employment decision tool must:
+1. Maintain records of the bias audit for a period of at least three years;
+2. Keep audit trails showing all uses of the tool with timestamps;
+3. Document all alternative selection processes provided;
+4. Make records available to the Department of Consumer and Worker Protection upon request within 5 business days.
+
+Enforcement: These rules shall be enforced beginning July 5, 2023. Civil penalties of up to $500 per violation for initial violations, and up to $1,500 per violation for subsequent violations, may be imposed.
+
+Effective Date: July 5, 2023
+

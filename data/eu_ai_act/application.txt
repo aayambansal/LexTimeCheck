@@ -1,0 +1,15 @@
+Article 50: Transparency obligations for providers and deployers of certain AI systems
+
+1. Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interacting with an AI system, unless this is obvious from the point of view of a natural person who is reasonably well-informed, observant and circumspect, taking into account the circumstances and the context of use. This obligation applies from August 2, 2026.
+
+2. Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated. Providers shall ensure their technical solutions are effective, interoperable, robust and reliable as far as this is technically feasible, taking into account the specificities and limitations of various types of content, the costs of implementation and the generally acknowledged state of the art, as may be reflected in relevant technical standards. This requirement is mandatory from August 2, 2026.
+
+3. Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system, and shall process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680, as applicable. Failure to comply may result in administrative fines up to €15,000,000 or 3% of total worldwide annual turnover.
+
+4. This Article shall not apply to AI systems authorised by law to detect, prevent, investigate or prosecute criminal offences, subject to appropriate safeguards for the rights and freedoms of third parties, provided that the right to information of the persons concerned is respected.
+
+5. Providers shall maintain detailed records of compliance with transparency obligations and make such records available to competent authorities upon request. Records shall be kept for a period of at least 5 years.
+
+Effective: August 2, 2026
+Enforcement: Full enforcement including penalties begins August 2, 2026.
+

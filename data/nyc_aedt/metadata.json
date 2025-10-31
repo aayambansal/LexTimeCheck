@@ -1,0 +1,15 @@
+{
+  "local_law": {
+    "effective_date": "2023-01-01",
+    "enactment_date": "2021-11-11",
+    "authority_level": "statute",
+    "source_url": "https://legistar.council.nyc.gov/LegislationDetail.aspx?ID=4344524"
+  },
+  "final_rules": {
+    "effective_date": "2023-07-05",
+    "enactment_date": "2023-04-06",
+    "authority_level": "regulation",
+    "source_url": "https://rules.cityofnewyork.us/rule/automated-employment-decision-tools/"
+  }
+}
+
