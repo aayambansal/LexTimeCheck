@@ -43,7 +43,7 @@ IMPORTANT GUIDELINES:
 Example output format:
 ```json
 [
-  {
+  {{
     "modality": "O",
     "subject": "providers of high-risk AI systems",
     "action": "make available a transparency notice",
@@ -55,7 +55,7 @@ Example output format:
     "effective_end": null,
     "text_snippet": "Providers shall make available...",
     "specificity_score": 0.7
-  }
+  }}
 ]
 ```
 

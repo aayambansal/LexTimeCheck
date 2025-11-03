@@ -57,9 +57,17 @@ pip install -e ".[dev]"
 ### 1. Set Up API Keys
 
 ```bash
+# Copy the example file
 cp .env.example .env
+
 # Edit .env and add your OpenAI or Anthropic API key
+# OPENAI_API_KEY=sk-proj-your-key-here
+# ANTHROPIC_API_KEY=sk-ant-api03-your-key-here
 ```
+
+Get API keys from:
+- OpenAI: https://platform.openai.com/api-keys
+- Anthropic: https://console.anthropic.com/settings/keys
 
 ### 2. Run the Complete Pipeline
 

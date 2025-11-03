@@ -13,6 +13,10 @@ from typing import List, Optional, Dict, Any
 import logging
 
 from pydantic import ValidationError
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 try:
     import openai
@@ -47,11 +51,11 @@ class LLMClient:
 
 class OpenAIClient(LLMClient):
     """OpenAI API client."""
-    
+
     def __init__(
         self,
         api_key: Optional[str] = None,
-        model: str = "gpt-4-turbo-preview"
+        model: str = "gpt-4o-mini"
     ):
         if not OPENAI_AVAILABLE:
             raise ImportError("OpenAI package not installed. Install with: pip install openai")
@@ -90,29 +94,29 @@ class OpenAIClient(LLMClient):
 
 class AnthropicClient(LLMClient):
     """Anthropic Claude API client."""
-    
+
     def __init__(
         self,
         api_key: Optional[str] = None,
-        model: str = "claude-3-sonnet-20240229"
+        model: str = "claude-3-haiku-20240307"
     ):
         if not ANTHROPIC_AVAILABLE:
             raise ImportError("Anthropic package not installed. Install with: pip install anthropic")
-        
+
         super().__init__(api_key, model)
         self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY")
         if not self.api_key:
             raise ValueError("Anthropic API key not provided")
-        
+
         self.client = anthropic.Anthropic(api_key=self.api_key)
-    
+
     def extract(self, prompt: str) -> str:
         """Extract using Anthropic API."""
         try:
             response = self.client.messages.create(
                 model=self.model,
                 max_tokens=4000,
-                temperature=0.1,
+                temperature=0.1,  # Only use temperature (not top_p) for Claude 4.5
                 messages=[
                     {
                         "role": "user",
@@ -120,10 +124,51 @@ class AnthropicClient(LLMClient):
                     }
                 ]
             )
-            
+
             return response.content[0].text
         except Exception as e:
             logger.error(f"Anthropic API error: {e}")
+            raise
+
+
+class GPT5Client(LLMClient):
+    """OpenAI GPT-5 API client using Responses API."""
+
+    def __init__(
+        self,
+        api_key: Optional[str] = None,
+        model: str = "gpt-5",
+        reasoning_effort: str = "high",
+        verbosity: str = "medium"
+    ):
+        if not OPENAI_AVAILABLE:
+            raise ImportError("OpenAI package not installed. Install with: pip install openai")
+
+        super().__init__(api_key, model)
+        self.api_key = api_key or os.getenv("OPENAI_API_KEY")
+        if not self.api_key:
+            raise ValueError("OpenAI API key not provided")
+
+        self.client = openai.OpenAI(api_key=self.api_key)
+        self.reasoning_effort = reasoning_effort
+        self.verbosity = verbosity
+
+    def extract(self, prompt: str) -> str:
+        """Extract using GPT-5 Responses API with reasoning."""
+        try:
+            # GPT-5 uses the new Responses API
+            response = self.client.responses.create(
+                model=self.model,
+                input=prompt,
+                reasoning={"effort": self.reasoning_effort},
+                text={"verbosity": self.verbosity},
+                max_output_tokens=4000
+            )
+
+            # Return the output text from the response
+            return response.output_text
+        except Exception as e:
+            logger.error(f"GPT-5 API error: {e}")
             raise
 
 
@@ -379,21 +424,30 @@ def create_llm_client(
 ) -> LLMClient:
     """
     Create an LLM client.
-    
+
     Args:
-        provider: LLM provider ('openai' or 'anthropic')
+        provider: LLM provider ('openai', 'anthropic', or 'gpt5')
         api_key: API key (optional, will use env var if not provided)
         model: Model name (optional, will use default)
-    
+
     Returns:
         LLMClient instance
     """
     provider = provider.lower()
-    
+
     if provider == "openai":
-        return OpenAIClient(api_key=api_key, model=model or "gpt-4-turbo-preview")
+        return OpenAIClient(api_key=api_key, model=model or "gpt-4o-mini")
+    elif provider == "gpt5" or (model and model.startswith("gpt-5")):
+        # Use GPT-5 client with high reasoning for legal tasks
+        return GPT5Client(
+            api_key=api_key,
+            model=model or "gpt-5",
+            reasoning_effort="high",
+            verbosity="medium"
+        )
     elif provider == "anthropic":
-        return AnthropicClient(api_key=api_key, model=model or "claude-3-sonnet-20240229")
+        # Default to Claude 4.5 Sonnet for quality
+        return AnthropicClient(api_key=api_key, model=model or "claude-sonnet-4-5-20250929")
     else:
         raise ValueError(f"Unsupported provider: {provider}")
 

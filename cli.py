@@ -19,6 +19,7 @@ from lextimecheck.conflicts import ConflictDetector
 from lextimecheck.canons import CanonResolver
 from lextimecheck.cards import SafetyCardGenerator
 from lextimecheck.whatif import WhatIfAnalyzer
+from lextimecheck.orchestrator import MultiModelOrchestrator
 
 
 # Configure logging
@@ -281,6 +282,136 @@ def run(corpus: str, output_dir: str, provider: str):
             continue
     
     click.echo(f"\n✨ Pipeline complete! Results in {output_dir}/")
+
+
+@cli.command(name='run-multi')
+@click.option('--corpus', required=True, type=click.Choice(['eu_ai_act', 'nyc_aedt', 'fre_702', 'all']), help='Corpus to process')
+@click.option('--output-dir', default='outputs', help='Output directory')
+@click.option('--enable-ensemble/--no-ensemble', default=True, help='Enable ensemble voting')
+@click.option('--enable-validation/--no-validation', default=True, help='Enable validation')
+def run_multi(corpus: str, output_dir: str, enable_ensemble: bool, enable_validation: bool):
+    """Run pipeline with multi-model orchestration (RECOMMENDED)."""
+    click.echo("🚀 Running LexTimeCheck with Multi-Model Architecture...")
+    click.echo(f"   Ensemble Voting: {'✅ ENABLED' if enable_ensemble else '❌ disabled'}")
+    click.echo(f"   Validation: {'✅ ENABLED' if enable_validation else '❌ disabled'}")
+
+    # Initialize orchestrator
+    orchestrator = MultiModelOrchestrator(
+        enable_ensemble=enable_ensemble,
+        enable_validation=enable_validation
+    )
+
+    corpora = ['eu_ai_act', 'nyc_aedt', 'fre_702'] if corpus == 'all' else [corpus]
+
+    all_stats = []
+
+    for corpus_name in corpora:
+        click.echo(f"\n📚 Processing {corpus_name}...")
+
+        try:
+            # Step 1: Extract norms with validation
+            click.echo("  Step 1: Multi-model extraction + validation...")
+            ingestor = CorpusIngestor()
+            sections = ingestor.load_corpus(corpus_name)
+
+            # Create base extractor (will be swapped by orchestrator)
+            llm_client = create_llm_client("openai", model="gpt-4o-mini")
+            extractor = NormExtractor(llm_client)
+
+            all_norms = []
+            extraction_metadata = []
+
+            for section in sections:
+                norms, metadata = orchestrator.extract_with_validation(section, extractor)
+                all_norms.extend(norms)
+                extraction_metadata.append(metadata)
+
+                status = "✓" if metadata.get("validation_passed", True) else "⚠"
+                click.echo(f"    {status} {section.section_id}: {len(norms)} norms")
+
+            # Step 2: Normalize temporal info
+            click.echo("  Step 2: Normalizing temporal information...")
+            normalizer = TemporalNormalizer()
+            all_norms = normalizer.normalize_norms(all_norms)
+
+            # Step 3: Detect conflicts
+            click.echo("  Step 3: Detecting conflicts...")
+            detector = ConflictDetector()
+            conflicts = detector.detect_conflicts(all_norms)
+            click.echo(f"    → Found {len(conflicts)} conflicts")
+
+            # Step 4: Resolve conflicts with ensemble
+            click.echo("  Step 4: Resolving conflicts...")
+            if enable_ensemble and len(conflicts) > 0:
+                click.echo("    → Using ensemble voting for resolutions...")
+                for conflict in conflicts:
+                    ensemble_resolution = orchestrator.resolve_with_ensemble(conflict, all_norms)
+                    if ensemble_resolution:
+                        conflict.resolution = ensemble_resolution
+                        conf = ensemble_resolution.confidence
+                        click.echo(f"       {conflict.conflict_id}: {ensemble_resolution.canon_applied.value} (confidence: {conf:.2f})")
+            else:
+                resolver = CanonResolver()
+                conflicts = resolver.resolve_conflicts(conflicts)
+
+            # Step 5: Generate Safety Cards
+            click.echo("  Step 5: Generating Safety Cards...")
+            generator = SafetyCardGenerator(output_dir=output_dir)
+
+            sections_map = {}
+            for norm in all_norms:
+                section_id = norm.source_id
+                if section_id not in sections_map:
+                    sections_map[section_id] = []
+                sections_map[section_id].append(norm)
+
+            for section_id, section_norms in sections_map.items():
+                section_conflicts = [
+                    c for c in conflicts
+                    if c.norm1.source_id == section_id or c.norm2.source_id == section_id
+                ]
+
+                card = generator.generate_card(
+                    section_id=section_id,
+                    corpus_name=corpus_name,
+                    norms=section_norms,
+                    conflicts=section_conflicts
+                )
+
+                generator.save_card_json(card)
+                generator.save_card_html(card)
+
+            # Get stats
+            stats = orchestrator.get_statistics()
+            all_stats.append(stats)
+
+            click.echo(f"  ✅ Completed {corpus_name}")
+            click.echo(f"     Norms: {len(all_norms)}")
+            click.echo(f"     Conflicts: {len(conflicts)}")
+            click.echo(f"     Cards: {len(sections_map)}")
+            click.echo(f"     Validation Success Rate: {stats.get('validation_success_rate', 0):.1%}")
+
+        except Exception as e:
+            click.echo(f"  ❌ Error processing {corpus_name}: {e}", err=True)
+            import traceback
+            traceback.print_exc()
+            continue
+
+    # Print overall statistics
+    if all_stats:
+        click.echo(f"\n📊 Multi-Model Statistics:")
+        total_stats = {
+            "extractions": sum(s["extractions"] for s in all_stats),
+            "validations": sum(s["validations"] for s in all_stats),
+            "ensemble_votes": sum(s["ensemble_votes"] for s in all_stats),
+            "validation_failures": sum(s["validation_failures"] for s in all_stats),
+        }
+        click.echo(f"  Total Extractions: {total_stats['extractions']}")
+        click.echo(f"  Validations Run: {total_stats['validations']}")
+        click.echo(f"  Ensemble Votes: {total_stats['ensemble_votes']}")
+        click.echo(f"  Validation Failures: {total_stats['validation_failures']}")
+
+    click.echo(f"\n✨ Multi-model pipeline complete! Results in {output_dir}/")
 
 
 @cli.command()
