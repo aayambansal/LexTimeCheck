@@ -5,6 +5,50 @@ All notable changes to LexTimeCheck will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2025-11-03
+
+### Added
+- **Frontier Model Support**
+  - Upgraded to Claude 4.5 Sonnet (claude-sonnet-4-5-20250929) as recommended model
+  - Added GPT-4 support as alternative model
+  - Multi-model orchestration system for ensemble approaches
+  
+- **Documentation Organization**
+  - Created `docs/` directory with organized documentation
+  - Added `docs/MODEL_UPGRADE_SUMMARY.md` with comprehensive upgrade guide
+  - Added `docs/README.md` as documentation index
+  - Moved all technical documentation to `docs/` folder
+
+- **Model Comparison Analysis**
+  - Comprehensive comparison between GPT-4o, Claude 4.5 Sonnet, and GPT-4
+  - Quantitative analysis showing Claude 4.5 extracts 23.7% more norms
+  - Generated comparison reports and recommendations
+  - Output saved to multiple directories for analysis
+
+### Changed
+- **Default Models Updated**
+  - Anthropic provider now defaults to Claude 4.5 Sonnet (was Claude 3 Haiku)
+  - OpenAI provider maintains gpt-4o-mini default for cost-effectiveness
+  
+- **README Updates**
+  - Added frontier model support badge
+  - Added model recommendation tips with performance data
+  - Updated project structure to reflect docs folder
+  - Added usage examples for different models
+
+### Fixed
+- **Security**
+  - Removed hardcoded API key from `debug_extraction.py`
+  - Cleaned API key from git commit history
+  - All API keys now properly loaded from environment variables
+
+### Performance
+- Claude 4.5 Sonnet shows significant improvements:
+  - +23.7% more norms extracted vs GPT-4o
+  - 8x more conflicts detected
+  - Better temporal reasoning
+  - Superior legal text analysis
+
 ## [0.1.0] - 2025-01-01
 
 ### Added - Initial Release

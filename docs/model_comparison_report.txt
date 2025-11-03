@@ -1,0 +1,108 @@
+================================================================================
+MODEL COMPARISON REPORT
+================================================================================
+
+📊 SUMMARY STATISTICS
+--------------------------------------------------------------------------------
+Model                          Sections     Norms        Conflicts    Avg Norms/Sec  
+--------------------------------------------------------------------------------
+GPT-4o (old)                   7            38           2            5.43           
+Claude 4.5 Sonnet (new)        7            47           10           6.71           
+GPT-4 (new)                    6            22           4            3.67           
+
+================================================================================
+📋 DETAILED COMPARISON BY SECTION
+================================================================================
+
+
+================================================================================
+CORPUS: EU_AI_ACT
+================================================================================
+
+Section: eu_ai_act_article_50_application
+--------------------------------------------------------------------------------
+  GPT-4o (old):                6 norms,  1 conflicts
+  Claude 4.5 Sonnet (new):     8 norms,  3 conflicts
+  GPT-4 (new):                 5 norms,  1 conflicts
+
+Section: eu_ai_act_article_50_pre_application
+--------------------------------------------------------------------------------
+  GPT-4o (old):                8 norms,  1 conflicts
+  Claude 4.5 Sonnet (new):     6 norms,  3 conflicts
+  GPT-4 (new):                 4 norms,  1 conflicts
+
+
+================================================================================
+CORPUS: FRE_702_RULE
+================================================================================
+
+Section: fre_702_rule_702_post_amendment
+--------------------------------------------------------------------------------
+  GPT-4o (old):                3 norms,  0 conflicts
+  Claude 4.5 Sonnet (new):     7 norms,  1 conflicts
+  GPT-4 (new):                 2 norms,  1 conflicts
+
+Section: fre_702_rule_702_pre_amendment
+--------------------------------------------------------------------------------
+  GPT-4o (old):                3 norms,  0 conflicts
+  Claude 4.5 Sonnet (new):     4 norms,  1 conflicts
+  GPT-4 (new):                 3 norms,  1 conflicts
+
+
+================================================================================
+CORPUS: NYC_AEDT_SECTION
+================================================================================
+
+Section: nyc_aedt_section_20-870_final_rules
+--------------------------------------------------------------------------------
+  GPT-4o (old):                1 norms,  0 conflicts
+  Claude 4.5 Sonnet (new):     3 norms,  0 conflicts
+  GPT-4 (new):               N/A
+
+Section: nyc_aedt_section_20-871_final_rules
+--------------------------------------------------------------------------------
+  GPT-4o (old):               13 norms,  0 conflicts
+  Claude 4.5 Sonnet (new):    13 norms,  1 conflicts
+  GPT-4 (new):                 5 norms,  0 conflicts
+
+Section: nyc_aedt_section_20-871_local_law
+--------------------------------------------------------------------------------
+  GPT-4o (old):                4 norms,  0 conflicts
+  Claude 4.5 Sonnet (new):     6 norms,  1 conflicts
+  GPT-4 (new):                 3 norms,  0 conflicts
+
+================================================================================
+🔍 KEY FINDINGS
+================================================================================
+
+1. NORM EXTRACTION:
+   • Claude 4.5 Sonnet extracted +9 more norms than GPT-4o
+     (+23.7% change)
+   • GPT-4 extracted -16 more norms than GPT-4o
+     (-42.1% change)
+
+2. CONFLICT DETECTION:
+   • Claude 4.5 Sonnet detected +8 more conflicts than GPT-4o
+   • GPT-4 detected +2 more conflicts than GPT-4o
+
+3. MODEL COMPARISON:
+   • Claude 4.5 Sonnet extracted 25 more norms than GPT-4
+   • Claude 4.5 Sonnet detected 6 more conflicts than GPT-4
+
+================================================================================
+💡 RECOMMENDATIONS
+================================================================================
+
+Based on the comparison:
+
+✅ Claude 4.5 Sonnet shows improved extraction capabilities
+   - Extracts more norms from legal text
+   - Maintains or improves conflict detection
+✅ GPT-4 provides different extraction patterns than GPT-4o
+   - May capture different legal nuances
+   - Useful for ensemble or validation approaches
+
+Recommendation: Consider using Claude 4.5 Sonnet as the primary model
+for improved norm extraction, with GPT-4 as a validation/ensemble option.
+
+================================================================================

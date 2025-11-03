@@ -23,6 +23,7 @@ Laws evolve through staged applicability, creating **intertemporal hazards** for
 - 📋 **Safety Cards**: Human-readable HTML/JSON audit artifacts
 - 🔮 **What-if mode**: Query which norms apply at specific dates
 - 🤖 **Dual LLM support**: Works with both OpenAI and Anthropic APIs
+- 🚀 **Frontier model support**: Optimized for Claude 4.5 Sonnet and GPT-4
 
 ## Installation
 
@@ -72,12 +73,20 @@ Get API keys from:
 ### 2. Run the Complete Pipeline
 
 ```bash
-# Process a single corpus
+# Process a single corpus (uses default models)
 python cli.py run --corpus eu_ai_act
 
 # Process all corpora
 python cli.py run --corpus all
+
+# Use Claude 4.5 Sonnet (recommended for best extraction)
+python cli.py run --corpus all --provider anthropic
+
+# Use GPT-4o
+python cli.py run --corpus all --provider openai
 ```
+
+> **💡 Tip**: Based on our model comparison, **Claude 4.5 Sonnet** extracts 23.7% more norms and detects 8 more conflicts than GPT-4o. See [docs/model_comparison_report.txt](docs/model_comparison_report.txt) for details.
 
 ### 3. View Safety Cards
 
@@ -271,11 +280,16 @@ LexTimeCheck/
 │   ├── conflicts.py       # Conflict detection
 │   ├── canons.py          # Canon resolution
 │   ├── cards.py           # Safety Card generation
+│   ├── orchestrator.py    # Multi-model orchestration
 │   └── whatif.py          # What-if mode
 ├── data/                  # Legal text corpora
 │   ├── eu_ai_act/
 │   ├── nyc_aedt/
 │   └── fre_702/
+├── docs/                  # Documentation
+│   ├── README.md          # Documentation index
+│   ├── ARCHITECTURE.md    # System architecture
+│   └── model_comparison_report.txt  # Model performance comparison
 ├── prompts/               # LLM prompts
 ├── evaluation/            # Benchmark & gold labels
 ├── outputs/               # Generated outputs
