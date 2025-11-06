@@ -1,73 +1,271 @@
 # LexTimeCheck Documentation
 
-This directory contains comprehensive documentation for the LexTimeCheck project.
+**Intertemporal Norm-Conflict Auditing for Changing Laws**
 
-## Contents
+## Quick Links
+- [Architecture Details](./ARCHITECTURE.md) - System design and multi-model strategy
+- [Execution Results](./RESULTS.md) - Pipeline outputs and model comparison
 
-### Architecture & Design
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - System architecture and design decisions
-- **[MULTI_MODEL_SYSTEM.md](MULTI_MODEL_SYSTEM.md)** - Multi-model orchestration system
-- **[MULTI_MODEL_IMPLEMENTATION.md](MULTI_MODEL_IMPLEMENTATION.md)** - Implementation details for multi-model support
+---
 
-### Development Notes
-- **[CLAUDE.md](CLAUDE.md)** - Claude AI integration notes
-- **[FRONTIER_MODELS_UPDATE.md](FRONTIER_MODELS_UPDATE.md)** - Updates for frontier model support
-- **[IMPLEMENTATION_COMPLETE.md](IMPLEMENTATION_COMPLETE.md)** - Implementation completion notes
-- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** - Project summary and overview
+## Overview
 
-### Execution Results
-- **[EXECUTION_RESULTS.md](EXECUTION_RESULTS.md)** - Historical execution results
-- **[pipeline_output.txt](pipeline_output.txt)** - Sample pipeline output
-- **[model_comparison_report.txt](model_comparison_report.txt)** - Comparison between old and new models
+LexTimeCheck is an end-to-end pipeline that:
+1. Extracts legal norms (obligations/permissions/prohibitions) from multiple versions of laws
+2. Detects conflicts across versions using temporal reasoning
+3. Resolves conflicts using legal canons (lex posterior, specialis, superior)
+4. Generates human-readable Safety Cards
 
-### Run Logs
-- **run_old_models.log** - Log from running with GPT-4o (old model)
-- **run_old_models_full.log** - Full pipeline log with GPT-4o
-- **run_new_models_claude45.log** - Log from running with Claude 4.5 Sonnet
-- **run_new_models_gpt4.log** - Log from running with GPT-4
+---
 
-## Model Comparison Summary
+## Quick Start
 
-We tested the LexTimeCheck pipeline with different LLM models to compare their performance:
+### Installation
+```bash
+pip install -r requirements.txt
+pip install -e .
+```
 
-### Models Tested
-1. **GPT-4o** (baseline/old model)
-2. **Claude 4.5 Sonnet** (new model)
-3. **GPT-4** (new model)
+### Setup API Key
+```bash
+echo "OPENAI_API_KEY=your-key-here" > .env
+```
 
-### Key Findings
+### Run Pipeline
+```bash
+# Process single corpus
+python cli.py run --corpus eu_ai_act
 
-| Model | Sections | Total Norms | Total Conflicts | Avg Norms/Section |
-|-------|----------|-------------|-----------------|-------------------|
-| GPT-4o (old) | 7 | 38 | 2 | 5.43 |
-| Claude 4.5 Sonnet (new) | 7 | 47 | 10 | 6.71 |
-| GPT-4 (new) | 6 | 22 | 4 | 3.67 |
+# Process all corpora
+python cli.py run --corpus all
 
-### Recommendations
+# View results
+open outputs/html/*.html
+```
 
-**✅ Claude 4.5 Sonnet** is the recommended model for LexTimeCheck:
-- **+23.7%** more norms extracted compared to GPT-4o
-- **+8** more conflicts detected (better at finding intertemporal issues)
-- More thorough legal text analysis
-- Better at capturing nuanced legal obligations
+---
 
-**GPT-4** shows different extraction patterns:
-- Fewer norms but may focus on more explicit requirements
-- Useful as a secondary validation model
-- Good for ensemble/validation approaches
+## Three Real-World Corpora
 
-## Recent Updates
+### 1. EU AI Act (Article 50)
+- **Focus**: Transparency obligations for AI systems
+- **Versions**: Pre-application (2024-08-01) vs Application (2026-08-02)
+- **Key Issue**: Staged applicability creates transition period conflicts
 
-### November 2024
-- ✅ Upgraded from Claude 3.5 Sonnet to Claude 4.5 Sonnet
-- ✅ Tested GPT-4 as alternative model
-- ✅ Created comprehensive model comparison
-- ✅ Organized documentation into dedicated folder
-- ✅ Generated comparison reports for all three corpora
+### 2. NYC Automated Employment Decision Tools
+- **Focus**: Bias audit and notice requirements
+- **Versions**: Local Law 144 (2023-01-01) vs Final Rules (2023-07-05)
+- **Key Issue**: Evolving notice requirements with different conditions
 
-## For More Information
+### 3. Federal Rules of Evidence 702
+- **Focus**: Expert testimony admissibility
+- **Versions**: Pre-amendment vs Post-December 1, 2023
+- **Key Issue**: Strengthened preponderance standard changes obligations
 
-- Main README: [../README.md](../README.md)
-- Contributing: [../CONTRIBUTING.md](../CONTRIBUTING.md)
-- Changelog: [../CHANGELOG.md](../CHANGELOG.md)
+---
 
+## Key Features
+
+### Multi-Model Architecture
+- **GPT-4o-mini**: Fast bulk extraction (low cost)
+- **Claude 4.5 Sonnet**: Quality validation (high accuracy)
+- **GPT-4**: Complex reasoning fallback
+- **Ensemble voting**: Cross-model validation for critical decisions
+
+### Conflict Detection
+- **Deontic Contradictions**: O vs F, P vs F
+- **Temporal Overlaps**: Same action, different modalities
+- **Condition Inconsistencies**: Different requirements across versions
+- **Exception Gaps**: Missing or changed exceptions
+
+### Canon-Based Resolution
+- **Lex Posterior**: Later-enacted rule prevails
+- **Lex Specialis**: More specific rule prevails
+- **Lex Superior**: Higher authority prevails
+- **Confidence Scoring**: 0.5-1.0 scale for resolution certainty
+
+---
+
+## Command-Line Interface
+
+### Extract Norms
+```bash
+python cli.py extract --corpus nyc_aedt --output norms.json
+```
+
+### Detect Conflicts
+```bash
+python cli.py detect --norms norms.json --output conflicts.json
+```
+
+### Generate Safety Cards
+```bash
+python cli.py cards \
+  --norms norms.json \
+  --conflicts conflicts.json \
+  --corpus nyc_aedt \
+  --format both
+```
+
+### What-If Queries
+```bash
+# What applies on specific date?
+python cli.py whatif \
+  --norms norms.json \
+  --conflicts conflicts.json \
+  --date 2023-06-15 \
+  --action "provide notice"
+```
+
+### Multi-Model Orchestration
+```bash
+# Run with specific model
+python cli.py run --corpus eu_ai_act --model claude-sonnet
+
+# Run with frontier models
+python cli.py run --corpus all --model gpt4o
+```
+
+---
+
+## Output Structure
+
+```
+outputs/
+├── json/                    # Extracted norms (programmatic access)
+├── html/                    # Safety Cards (human-readable)
+├── frontier_models/         # Latest model results
+├── standard_models/         # Baseline comparison
+└── old_models/              # Previous versions
+```
+
+Each Safety Card includes:
+- Version diff visualization
+- Timeline with conflict periods
+- Detected conflicts with severity scores
+- Canon-based resolutions with explanations
+- Residual risk warnings
+- Source citations
+
+---
+
+## Python API
+
+```python
+from lextimecheck import (
+    CorpusIngestor,
+    NormExtractor,
+    ConflictDetector,
+    CanonResolver,
+    SafetyCardGenerator
+)
+
+# Load corpus
+ingestor = CorpusIngestor()
+sections = ingestor.load_corpus("eu_ai_act")
+
+# Extract norms
+from lextimecheck.extractor import create_llm_client
+client = create_llm_client("openai")
+extractor = NormExtractor(client)
+norms = extractor.extract_batch(sections)
+
+# Detect & resolve conflicts
+detector = ConflictDetector()
+conflicts = detector.detect_conflicts(norms)
+
+resolver = CanonResolver()
+conflicts = resolver.resolve_conflicts(conflicts)
+
+# Generate Safety Card
+generator = SafetyCardGenerator()
+card = generator.generate_card(
+    section_id="eu_ai_act_article_50",
+    corpus_name="eu_ai_act",
+    norms=norms,
+    conflicts=conflicts
+)
+generator.save_card_html(card)
+```
+
+---
+
+## Evaluation Framework
+
+### Metrics
+1. **Extraction Accuracy**: % norms correctly captured
+2. **Temporal Fidelity**: % correct start/end dates
+3. **Conflict Precision/Recall**: Detection vs gold standard
+4. **Resolution Agreement**: Canon selection accuracy
+5. **Latency**: Processing time per section
+
+### Gold Labels
+`evaluation/gold_labels.json` contains:
+- Expected norm counts per section
+- Known conflicts with resolutions
+- Key dates for validation
+
+---
+
+## Novel Contributions
+
+1. **First intertemporal conflict auditor** for statutory evolution
+2. **Multi-model orchestration** for cost-effective quality
+3. **Canon-based resolution** with explainable rationales
+4. **Auditable Safety Cards** practitioners can trust
+5. **Reproducible benchmark** with real-world legal texts
+
+---
+
+## Use Cases
+
+### Regulatory Compliance
+- Identify when new obligations take effect
+- Detect conflicting requirements during transitions
+- Generate compliance timelines
+
+### Legal Risk Assessment
+- Flag intertemporal hazards before deployment
+- Document change-of-law due diligence
+- Audit legal changes for AI systems
+
+### Policy Analysis
+- Compare legislative versions
+- Track evolution of requirements
+- Analyze canon effectiveness
+
+---
+
+## Limitations
+
+- Simplified norm schema may miss nuances
+- LLM extraction accuracy varies by model
+- Small gold set (30 sections, extensible)
+- Complex retroactivity not fully modeled
+- English-only
+
+---
+
+## Citation
+
+```bibtex
+@inproceedings{lextimecheck2025,
+  title={LexTimeCheck: Intertemporal Norm-Conflict Auditing for Changing Laws},
+  author={[Authors]},
+  booktitle={Bridge: AI-Law Workshop},
+  year={2025}
+}
+```
+
+---
+
+## License
+
+MIT License - See LICENSE file
+
+---
+
+## Contact
+
+- GitHub Issues: https://github.com/aayambansal/LexTimeCheck/issues
+- Workshop: https://bridge-ai-law.github.io/
