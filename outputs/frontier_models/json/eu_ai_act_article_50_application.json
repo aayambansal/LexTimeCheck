@@ -1,0 +1,120 @@
+{
+  "section_id": "eu_ai_act_article_50_application",
+  "corpus_name": "eu_ai_act",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2026-08-02 to ongoing",
+      "interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application"
+      ],
+      "conflicts": [
+        "conflict_0000"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict_0000",
+      "conflict_type": "exception_gap",
+      "norm1": {
+        "modality": "O",
+        "subject": "Deployers of an emotion recognition system or a biometric categorisation system",
+        "action": "inform the natural persons exposed thereto of the operation of the system",
+        "object": "natural persons exposed to the system",
+        "conditions": null,
+        "jurisdiction": "European Union",
+        "exceptions": [
+          "AI systems authorised by law to detect, prevent, investigate or prosecute criminal offences, subject to appropriate safeguards for the rights and freedoms of third parties, provided that the right to information of the persons concerned is respected"
+        ],
+        "effective_start": "2026-08-02T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2026-08-02T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_application",
+        "version_id": "application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system",
+        "specificity_score": 0.8
+      },
+      "norm2": {
+        "modality": "O",
+        "subject": "deployers of an emotion recognition system or a biometric categorisation system",
+        "action": "inform the natural persons exposed thereto of the operation of the system",
+        "object": "natural persons",
+        "conditions": null,
+        "jurisdiction": "European Union",
+        "exceptions": null,
+        "effective_start": "2024-08-01T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2024-08-01T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_pre_application",
+        "version_id": "pre_application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system...",
+        "specificity_score": 0.6
+      },
+      "overlap_interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "severity": 0.6,
+      "description": "Exception gap: 'inform the natural persons exposed thereto of the operation of the system' has different exceptions (1 in application, 0 in pre_application)",
+      "resolution": {
+        "canon_applied": "lex_specialis",
+        "prevailing_norm": "eu_ai_act_article_50_application",
+        "rationale": "Ensemble decision (confidence: 0.50). {\n  \"canon\": \"lex_specialis\",\n  \"rationale\": \"Both norms share the same authority and enactment date",
+        "confidence": 0.5
+      },
+      "detected_at": "2025-11-02T21:36:57.145836"
+    }
+  ],
+  "residual_risks": [
+    "1 low-confidence resolution(s)",
+    "Multiple norms with different exceptions - potential gaps"
+  ],
+  "sources": [
+    {
+      "source_id": "eu_ai_act_article_50_application",
+      "version_id": "application",
+      "text_snippet": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interac"
+    }
+  ],
+  "metadata": {
+    "norm_count": 8,
+    "conflict_count": 1,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T21:37:29.659815"
+}

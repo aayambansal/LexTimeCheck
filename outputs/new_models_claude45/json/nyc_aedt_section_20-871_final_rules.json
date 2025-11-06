@@ -1,0 +1,122 @@
+{
+  "section_id": "nyc_aedt_section_20-871_final_rules",
+  "corpus_name": "nyc_aedt",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2023-07-05 to ongoing",
+      "interval": {
+        "start_date": "2023-07-05T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules",
+        "nyc_aedt_section_20-871_final_rules"
+      ],
+      "conflicts": [
+        "conflict_0000"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict_0000",
+      "conflict_type": "condition_inconsistency",
+      "norm1": {
+        "modality": "F",
+        "subject": "employer or employment agency",
+        "action": "use an automated employment decision tool to screen a candidate or employee for an employment decision",
+        "object": "candidate or employee",
+        "conditions": "unless such tool has been subject to a bias audit conducted no more than one year prior to the use of such tool",
+        "jurisdiction": "New York City",
+        "exceptions": null,
+        "effective_start": "2023-07-05T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2023-07-05T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "nyc_aedt_section_20-871_final_rules",
+        "version_id": "final_rules",
+        "authority_level": "regulation",
+        "enactment_date": "2023-04-06T00:00:00",
+        "text_snippet": "It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless: 1. Such tool has been subject to a bias audit conducted no more than one year prior to the use of such tool",
+        "specificity_score": 0.8
+      },
+      "norm2": {
+        "modality": "F",
+        "subject": "employer or employment agency",
+        "action": "use an automated employment decision tool to screen a candidate or employee for an employment decision",
+        "object": "candidate or employee",
+        "conditions": "unless the tool has been subject to a bias audit conducted no more than one year prior to use AND a summary of the most recent bias audit results is publicly available on the website",
+        "jurisdiction": "New York City",
+        "exceptions": null,
+        "effective_start": "2023-01-01T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2023-01-01T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "nyc_aedt_section_20-871_local_law",
+        "version_id": "local_law",
+        "authority_level": "statute",
+        "enactment_date": "2021-11-11T00:00:00",
+        "text_snippet": "It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless: 1. Such tool has been subject to a bias audit conducted no more than one year prior to the use of such tool; and 2. A summary of the results of the most recent bias audit of such tool is publicly available on the website of the employer or employment agency using such tool.",
+        "specificity_score": 0.8
+      },
+      "overlap_interval": {
+        "start_date": "2023-07-05T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "severity": 0.7,
+      "description": "Condition inconsistency: 'use an automated employment decision tool to screen a candidate or employee for an employment decision' has different conditions in final_rules vs local_law",
+      "resolution": {
+        "canon_applied": "lex_superior",
+        "prevailing_norm": "nyc_aedt_section_20-871_local_law",
+        "rationale": "Applying lex superior: statute (in local_law) has higher authority than regulation (in final_rules)",
+        "confidence": 0.9
+      },
+      "detected_at": "2025-11-02T22:47:09.814912"
+    }
+  ],
+  "residual_risks": [
+    "1 condition inconsistency/ies detected"
+  ],
+  "sources": [
+    {
+      "source_id": "nyc_aedt_section_20-871_final_rules",
+      "version_id": "final_rules",
+      "text_snippet": "It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless: 1. Such tool has been subjec"
+    }
+  ],
+  "metadata": {
+    "norm_count": 13,
+    "conflict_count": 1,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T22:47:09.836937"
+}

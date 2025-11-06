@@ -1,0 +1,69 @@
+{
+  "section_id": "eu_ai_act_article_50_pre_application",
+  "corpus_name": "eu_ai_act",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2024-08-01 to ongoing",
+      "interval": {
+        "start_date": "2024-08-01T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application"
+      ],
+      "conflicts": []
+    },
+    {
+      "phase_name": "2024-08-21 to ongoing",
+      "interval": {
+        "start_date": "2024-08-21T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_pre_application"
+      ],
+      "conflicts": []
+    },
+    {
+      "phase_name": "2026-08-02 to ongoing",
+      "interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_pre_application"
+      ],
+      "conflicts": []
+    }
+  ],
+  "conflicts": [],
+  "residual_risks": [],
+  "sources": [
+    {
+      "source_id": "eu_ai_act_article_50_pre_application",
+      "version_id": "pre_application",
+      "text_snippet": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interac"
+    }
+  ],
+  "metadata": {
+    "norm_count": 7,
+    "conflict_count": 0,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T21:41:18.697694"
+}

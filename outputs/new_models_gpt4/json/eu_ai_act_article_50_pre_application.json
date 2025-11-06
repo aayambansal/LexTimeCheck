@@ -1,0 +1,114 @@
+{
+  "section_id": "eu_ai_act_article_50_pre_application",
+  "corpus_name": "eu_ai_act",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2026-08-02 to ongoing",
+      "interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application",
+        "eu_ai_act_article_50_pre_application"
+      ],
+      "conflicts": [
+        "conflict_0000"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict_0000",
+      "conflict_type": "condition_inconsistency",
+      "norm1": {
+        "modality": "O",
+        "subject": "Deployers of an emotion recognition system or a biometric categorisation system",
+        "action": "inform the natural persons exposed thereto of the operation of the system, and process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680",
+        "object": "natural persons exposed to the system",
+        "conditions": null,
+        "jurisdiction": "European Union",
+        "exceptions": null,
+        "effective_start": "2026-08-02T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2026-08-02T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_application",
+        "version_id": "application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system, and shall process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680, as applicable.",
+        "specificity_score": 0.9
+      },
+      "norm2": {
+        "modality": "O",
+        "subject": "Deployers of an emotion recognition system or a biometric categorisation system",
+        "action": "inform the natural persons exposed thereto of the operation of the system, and process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680",
+        "object": "natural persons exposed to the system",
+        "conditions": "as applicable",
+        "jurisdiction": "European Union",
+        "exceptions": null,
+        "effective_start": "2026-08-02T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2026-08-02T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_pre_application",
+        "version_id": "pre_application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Deployers of an emotion recognition system or a biometric categorisation system shall inform the natural persons exposed thereto of the operation of the system, and shall process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680, as applicable.",
+        "specificity_score": 0.9
+      },
+      "overlap_interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "severity": 0.5,
+      "description": "Condition inconsistency: 'inform the natural persons exposed thereto of the operation of the system, and process personal data in accordance with Regulations (EU) 2016/679 and (EU) 2018/1725 and Directive (EU) 2016/680' has different conditions in application vs pre_application",
+      "resolution": {
+        "canon_applied": "lex_posterior",
+        "prevailing_norm": "eu_ai_act_article_50_pre_application",
+        "rationale": "No clear canon applies. As a default, preferring pre_application. Human review recommended.",
+        "confidence": 0.5
+      },
+      "detected_at": "2025-11-02T22:49:52.703200"
+    }
+  ],
+  "residual_risks": [
+    "1 low-confidence resolution(s)",
+    "1 condition inconsistency/ies detected"
+  ],
+  "sources": [
+    {
+      "source_id": "eu_ai_act_article_50_pre_application",
+      "version_id": "pre_application",
+      "text_snippet": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interac"
+    }
+  ],
+  "metadata": {
+    "norm_count": 4,
+    "conflict_count": 1,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T22:49:52.726164"
+}

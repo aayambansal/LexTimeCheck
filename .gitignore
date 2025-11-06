@@ -43,11 +43,12 @@ ENV/
 logs/
 
 # Output files
-outputs/
 *.json
 *.html
 !evaluation/gold_labels.json
 !data/**/*.json
+!outputs/**/*.json
+!outputs/**/*.html
 
 # Testing
 .pytest_cache/

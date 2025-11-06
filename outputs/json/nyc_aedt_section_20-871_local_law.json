@@ -1,0 +1,40 @@
+{
+  "section_id": "nyc_aedt_section_20-871_local_law",
+  "corpus_name": "nyc_aedt",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2023-01-01 to ongoing",
+      "interval": {
+        "start_date": "2023-01-01T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "nyc_aedt_section_20-871_local_law",
+        "nyc_aedt_section_20-871_local_law",
+        "nyc_aedt_section_20-871_local_law",
+        "nyc_aedt_section_20-871_local_law"
+      ],
+      "conflicts": []
+    }
+  ],
+  "conflicts": [],
+  "residual_risks": [],
+  "sources": [
+    {
+      "source_id": "nyc_aedt_section_20-871_local_law",
+      "version_id": "local_law",
+      "text_snippet": "It shall be unlawful for an employer or employment agency to use an automated employment decision tool to screen a candidate or employee for an employment decision unless..."
+    }
+  ],
+  "metadata": {
+    "norm_count": 4,
+    "conflict_count": 0,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T21:42:21.510265"
+}

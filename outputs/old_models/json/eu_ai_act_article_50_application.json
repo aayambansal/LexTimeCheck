@@ -1,0 +1,116 @@
+{
+  "section_id": "eu_ai_act_article_50_application",
+  "corpus_name": "eu_ai_act",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2026-08-02 to ongoing",
+      "interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application",
+        "eu_ai_act_article_50_application"
+      ],
+      "conflicts": [
+        "conflict_0000"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict_0000",
+      "conflict_type": "condition_inconsistency",
+      "norm1": {
+        "modality": "O",
+        "subject": "providers of AI systems",
+        "action": "ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated",
+        "object": "outputs of the AI system",
+        "conditions": "as far as this is technically feasible, taking into account the specificities and limitations of various types of content, the costs of implementation and the generally acknowledged state of the art",
+        "jurisdiction": "European Union",
+        "exceptions": null,
+        "effective_start": "2026-08-02T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2026-08-02T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_application",
+        "version_id": "application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated.",
+        "specificity_score": 0.7
+      },
+      "norm2": {
+        "modality": "O",
+        "subject": "providers of AI systems",
+        "action": "ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated",
+        "object": "outputs of the AI system",
+        "conditions": "when generating synthetic audio, image, video or text content",
+        "jurisdiction": "European Union",
+        "exceptions": null,
+        "effective_start": "2024-08-01T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2024-08-01T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "eu_ai_act_article_50_pre_application",
+        "version_id": "pre_application",
+        "authority_level": "regulation",
+        "enactment_date": "2024-07-12T00:00:00",
+        "text_snippet": "Providers of AI systems, including general-purpose AI systems, generating synthetic audio, image, video or text content, shall ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated.",
+        "specificity_score": 0.7
+      },
+      "overlap_interval": {
+        "start_date": "2026-08-02T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "severity": 0.7,
+      "description": "Condition inconsistency: 'ensure that the outputs of the AI system are marked in a machine-readable format and detectable as artificially generated or manipulated' has different conditions in application vs pre_application",
+      "resolution": {
+        "canon_applied": "lex_posterior",
+        "prevailing_norm": "eu_ai_act_article_50_application",
+        "rationale": "No clear canon applies. As a default, preferring application. Human review recommended.",
+        "confidence": 0.5
+      },
+      "detected_at": "2025-11-02T22:42:54.520151"
+    }
+  ],
+  "residual_risks": [
+    "1 low-confidence resolution(s)",
+    "1 condition inconsistency/ies detected"
+  ],
+  "sources": [
+    {
+      "source_id": "eu_ai_act_article_50_application",
+      "version_id": "application",
+      "text_snippet": "Providers shall ensure that AI systems intended to interact directly with natural persons are designed and developed in such a way that the natural persons concerned are informed that they are interac"
+    }
+  ],
+  "metadata": {
+    "norm_count": 6,
+    "conflict_count": 1,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T22:42:54.520808"
+}

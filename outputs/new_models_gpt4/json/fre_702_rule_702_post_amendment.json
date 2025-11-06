@@ -1,0 +1,111 @@
+{
+  "section_id": "fre_702_rule_702_post_amendment",
+  "corpus_name": "fre_702",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2023-12-01 to ongoing",
+      "interval": {
+        "start_date": "2023-12-01T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "fre_702_rule_702_post_amendment",
+        "fre_702_rule_702_post_amendment"
+      ],
+      "conflicts": [
+        "conflict_0000"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "conflict_0000",
+      "conflict_type": "condition_inconsistency",
+      "norm1": {
+        "modality": "P",
+        "subject": "a witness who is qualified as an expert by knowledge, skill, experience, training, or education",
+        "action": "testify in the form of an opinion or otherwise",
+        "object": null,
+        "conditions": "the proponent demonstrates to the court that it is more likely than not that the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue; the testimony is based on sufficient facts or data; the testimony is the product of reliable principles and methods; the expert's opinion reflects a reliable application of the principles and methods to the facts of the case",
+        "jurisdiction": null,
+        "exceptions": null,
+        "effective_start": "2023-12-01T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2023-12-01T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "fre_702_rule_702_post_amendment",
+        "version_id": "post_amendment",
+        "authority_level": "statute",
+        "enactment_date": "2023-04-26T00:00:00",
+        "text_snippet": "A witness who is qualified as an expert by knowledge, skill, experience, training, or education may testify in the form of an opinion or otherwise if the proponent demonstrates to the court that it is more likely than not that: (a) the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue; (b) the testimony is based on sufficient facts or data; (c) the testimony is the product of reliable principles and methods; and (d) the expert's opinion reflects a reliable application of the principles and methods to the facts of the case.",
+        "specificity_score": 0.9
+      },
+      "norm2": {
+        "modality": "P",
+        "subject": "a witness who is qualified as an expert by knowledge, skill, experience, training, or education",
+        "action": "testify in the form of an opinion or otherwise",
+        "object": "the evidence or fact in issue",
+        "conditions": "the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue; the testimony is based on sufficient facts or data; the testimony is the product of reliable principles and methods; the expert has reliably applied the principles and methods to the facts of the case",
+        "jurisdiction": "fre_702",
+        "exceptions": null,
+        "effective_start": "2000-12-01T00:00:00",
+        "effective_end": null,
+        "temporal_interval": {
+          "start_date": "2000-12-01T00:00:00",
+          "end_date": null,
+          "interval_type": "closed",
+          "is_open_ended": true,
+          "uncertainty_flag": false
+        },
+        "source_id": "fre_702_rule_702_pre_amendment",
+        "version_id": "pre_amendment",
+        "authority_level": "statute",
+        "enactment_date": "2000-04-17T00:00:00",
+        "text_snippet": "A witness who is qualified as an expert by knowledge, skill, experience, training, or education may testify in the form of an opinion or otherwise if: (a) the expert's scientific, technical, or other specialized knowledge will help the trier of fact to understand the evidence or to determine a fact in issue; (b) the testimony is based on sufficient facts or data; (c) the testimony is the product of reliable principles and methods; and (d) the expert has reliably applied the principles and methods to the facts of the case.",
+        "specificity_score": 0.9
+      },
+      "overlap_interval": {
+        "start_date": "2023-12-01T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "severity": 0.7,
+      "description": "Condition inconsistency: 'testify in the form of an opinion or otherwise' has different conditions in post_amendment vs pre_amendment",
+      "resolution": {
+        "canon_applied": "lex_posterior",
+        "prevailing_norm": "fre_702_rule_702_post_amendment",
+        "rationale": "Applying lex posterior: post_amendment (enacted 2023-04-26) is later than pre_amendment (enacted 2000-04-17). Later-enacted rule governs.",
+        "confidence": 0.85
+      },
+      "detected_at": "2025-11-02T22:51:02.013651"
+    }
+  ],
+  "residual_risks": [
+    "1 condition inconsistency/ies detected"
+  ],
+  "sources": [
+    {
+      "source_id": "fre_702_rule_702_post_amendment",
+      "version_id": "post_amendment",
+      "text_snippet": "A witness who is qualified as an expert by knowledge, skill, experience, training, or education may testify in the form of an opinion or otherwise if the proponent demonstrates to the court that it is"
+    }
+  ],
+  "metadata": {
+    "norm_count": 2,
+    "conflict_count": 1,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T22:51:02.014525"
+}

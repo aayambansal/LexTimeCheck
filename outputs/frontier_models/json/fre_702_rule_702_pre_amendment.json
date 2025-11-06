@@ -1,0 +1,39 @@
+{
+  "section_id": "fre_702_rule_702_pre_amendment",
+  "corpus_name": "fre_702",
+  "version_diff": null,
+  "timeline": [
+    {
+      "phase_name": "2000-12-01 to ongoing",
+      "interval": {
+        "start_date": "2000-12-01T00:00:00",
+        "end_date": null,
+        "interval_type": "closed",
+        "is_open_ended": true,
+        "uncertainty_flag": false
+      },
+      "applicable_norms": [
+        "fre_702_rule_702_pre_amendment",
+        "fre_702_rule_702_pre_amendment",
+        "fre_702_rule_702_pre_amendment"
+      ],
+      "conflicts": []
+    }
+  ],
+  "conflicts": [],
+  "residual_risks": [],
+  "sources": [
+    {
+      "source_id": "fre_702_rule_702_pre_amendment",
+      "version_id": "pre_amendment",
+      "text_snippet": "A witness who is qualified as an expert by knowledge, skill, experience, training, or education may testify in the form of an opinion or otherwise if..."
+    }
+  ],
+  "metadata": {
+    "norm_count": 3,
+    "conflict_count": 0,
+    "high_severity_conflicts": 0,
+    "versions_analyzed": 1
+  },
+  "generated_at": "2025-11-02T21:39:41.465576"
+}
